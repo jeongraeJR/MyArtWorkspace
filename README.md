@@ -5,6 +5,8 @@
 - NodeJS (Express) 
 - Mongodb (Mongoose)
 - Docker
+- Bootstrap
 
 
-
+# 목표기간
+- 1달 ( 2020.05.20 ~ )
