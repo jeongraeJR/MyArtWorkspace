@@ -8,16 +8,16 @@ const getUser = (req, res, next) => {
 const addUser = (req, res, next) => {
     const user = {
         name: req.body.name,
-        email: req.body.email
-    }
+        email: req.body.email,
+    };
 
-    User.register(user, req.body.password, (err,user)=>{
-        if(err) {
+    User.register(user, req.body.password, (err, user) => {
+        if (err) {
             console.log(err);
-        }else {
+        } else {
             res.redirect('/index');
         }
-    } )
+    });
 };
 
 const login = passport.authenticate('local', { successRedirect: '/', failureRedirect: '/login', failureFlash: true });
