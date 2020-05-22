@@ -9,6 +9,15 @@ var usersRouter = require('./routes/user');
 
 var app = express();
 
+const mongoose = require('mongoose');
+let url =  "mongodb://localhost:27017/study";
+mongoose.connect(url, {useNewUrlParser: true});
+
+import './passport.js';
+import passport from 'passport';
+import session from 'cookie-session';
+import flash from 'connect-flash';
+
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
@@ -18,6 +27,14 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(session({
+  name: 'session',
+  keys: ['key1', 'key2']
+}));
+
+app.use(passport.initialize());
+app.use(passport.session());
+app.use(flash());
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
