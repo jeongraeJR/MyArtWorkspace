@@ -19,8 +19,13 @@ categoryController.addCategory = (req, res, next) => {
     category
     .save()
     .then(result=>{
-        /* User.update({_id:req.user._id}, {$push:{category:result}});
-        res.redirect('./category'); */
+        User.updateOne({_id:req.user._id}, {$push:
+            {'category':result}
+        })
+        .then(updateResult=>{
+            console.log(updateResult);
+        });
+        res.redirect('./category');
     })
     .catch(err => {
         console.log(err);
