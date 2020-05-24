@@ -4,5 +4,6 @@ import category from './category.controller';
 
 /* GET users listing. */
 router.get('/', category.getCategory);
+router.post('/', category.addCategory);
 
 module.exports = router;

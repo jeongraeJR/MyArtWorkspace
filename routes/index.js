@@ -14,4 +14,8 @@ router.get('/signup', function (req, res, next) {
   res.render('signup', { title: 'Sign Up' });
 });
 
+router.get('/category', function (req, res, next) {
+  res.render('category', { title: 'Category' });
+});
+
 module.exports = router;

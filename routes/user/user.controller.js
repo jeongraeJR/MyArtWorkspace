@@ -1,11 +1,14 @@
 import User from '../../models/User';
 import passport from 'passport';
+const userController = {};
 
-const getUser = (req, res, next) => {
+userController.getUser = (req, res, next) => {
     res.send('respond with a resource : getUser');
+    console.log(req.user);
 };
 
-const addUser = (req, res, next) => {
+userController.addUser = (req, res, next) => {
+
     const user = {
         name: req.body.name,
         email: req.body.email,
@@ -15,10 +18,9 @@ const addUser = (req, res, next) => {
         if (err) {
             console.log(err);
         } else {
-            res.redirect('/index');
+            res.redirect('/signup');
         }
     });
 };
-
-const login = passport.authenticate('local', { successRedirect: '/', failureRedirect: '/login', failureFlash: true });
-module.exports = { getUser, addUser, login };
+userController.login = passport.authenticate('local', { successRedirect: '/', failureRedirect: '/login', failureFlash: true });
+export default userController;

@@ -1,11 +1,10 @@
 import express from 'express';
 var router = express.Router();
-import user from './user.controller';
-import passport from 'passport';
+import userController from './user.controller';
 
 /* GET users listing. */
-router.get('/', user.getUser);
-router.post('/', user.addUser);
-router.post('/login', user.login);
+router.get('/', userController.getUser);
+router.post('/', userController.addUser);
+router.post('/login', userController.login);
 
 module.exports = router;
