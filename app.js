@@ -10,8 +10,14 @@ var usersRouter = require('./routes/user');
 var app = express();
 
 const mongoose = require('mongoose');
-let url =  "mongodb://localhost:27017/study";
-mongoose.connect(url, {useNewUrlParser: true});
+/* let url =  "mongodb://localhost:27017/study";
+mongoose.connect(url, {useNewUrlParser: true}); */
+mongoose
+      .connect(
+        `mongodb://${process.env.DB_HOST || 'localhost'}:27017/${
+          process.env.DB
+        }`,
+      )
 
 import './passport.js';
 import passport from 'passport';
