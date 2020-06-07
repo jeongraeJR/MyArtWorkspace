@@ -4,12 +4,12 @@ services:
     container_name: server
     build: . # Dockerfile이 위치한 경로
     ports:
-      - "3030:3031" # 연결할 포트
+      - "3000:3000" # 연결할 포트
     environment: # 환경변수 설정
       - NODE_PATH=src
       - DB_HOST=mongo
       - DB=study
-    depends_on:
+    depends_on: #mongodb가 실행되고 난후
     - mongodb
     networks: # 각 컨테이너를 연결하는 네트워크
       - backend
