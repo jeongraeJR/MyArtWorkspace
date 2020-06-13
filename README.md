@@ -11,5 +11,12 @@
 
 ![Alt text](https://github.com/jeongraeJR/MyArtWorkspace/blob/master/public/images/diagram.png?raw=true "diagram")
 
-# 목표기간
-- 1달 ( 2020.05.20 ~ )
+# BUILD & RUN
+build
+```
+docker-compose build
+```
+run
+```
+docker-compose up
+```
