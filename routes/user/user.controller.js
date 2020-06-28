@@ -14,13 +14,23 @@ userController.addUser = (req, res, next) => {
         email: req.body.email,
     };
 
-    User.register(user, req.body.password, (err, user) => {
-        if (err) {
-            console.log(err);
-        } else {
-            res.redirect('/signup');
-        }
-    });
+    const userExists = User.findOne({email:req.body.email});
+
+    if(userExists){
+        //error
+        res.json({ success: 'fail', message: '이미 존재하는 사용자입니다.' });
+    }
+    else {
+        User.register(user, req.body.password, (err, user) => {
+            if (err) {
+                console.log(err);
+            } else {
+                res.redirect('/signup');
+            }
+        });
+    }
+
+  
 };
 userController.login = passport.authenticate('local', { successRedirect: '/', failureRedirect: '/login', failureFlash: true });
 export default userController;

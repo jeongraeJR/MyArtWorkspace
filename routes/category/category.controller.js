@@ -25,7 +25,7 @@ categoryController.addCategory = (req, res, next) => {
         .then(updateResult=>{
             res.json({item:updateResult})
         });
-        res.redirect('./category');
+        res.redirect('./categoryForm');
     })
     .catch(err => {
         console.log(err);
