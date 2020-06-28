@@ -6,7 +6,7 @@ router.get('/', function (req, res, next) {
     if (!req.user) {
         res.render('login');
     } else {
-        res.render('index');
+        res.render('index', { title: 'My Art Workspace' });
     }
 });
 
@@ -18,12 +18,14 @@ router.get('/signup', function (req, res, next) {
     res.render('signup', { title: 'Sign Up' });
 });
 
-router.get('/category', function (req, res, next) {
-    res.render('category', { title: 'Category' });
-});
 
 router.get('/postForm', function (req, res, next) {
     res.render('postForm', { title: 'Category' });
 });
+
+router.get('/categoryForm', function (req, res, next) {
+    res.render('categoryForm', { title: 'Category' });
+});
+
 
 module.exports = router;

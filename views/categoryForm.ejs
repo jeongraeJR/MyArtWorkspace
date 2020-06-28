@@ -12,11 +12,8 @@
   <% include ./header %>
 
   <div class="container mt-3">
-    <form action="/posts/" method="POST" enctype="multipart/form-data">
-        제목 : <input type="text" name="title"/><br/>
-        내용 : <input type="text" name="contents"/><br/>
-        작업시간 : <input type="text" name="workingtime"/><br/> 분
-        첨부파일 <input type="file" name="attachment"/><br/>
+    <form action="/category" method="POST" enctype="multipart/form-data">
+        카테고리 이름 : <input type="text" name="name""/><br/>
         <button type="submit">등록</button>
     </form>
   </div>

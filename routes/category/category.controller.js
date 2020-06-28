@@ -23,7 +23,7 @@ categoryController.addCategory = (req, res, next) => {
             {'category':result}
         })
         .then(updateResult=>{
-            console.log(updateResult);
+            res.json({item:updateResult})
         });
         res.redirect('./category');
     })
